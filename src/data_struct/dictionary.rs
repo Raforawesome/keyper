@@ -4,17 +4,17 @@ pub struct Dictionary {
 }
 
 impl Dictionary {
-    fn new() -> Dictionary {
+    pub fn new() -> Dictionary {
         Dictionary {
             keys: Vec::new(),
             values: Vec::new()
         }
     }
-    fn set(&mut self, k: String, v: String) {
+    pub fn set(&mut self, k: String, v: String) {
         self.keys.push(k);
         self.values.push(v);
     }
-    fn get(&self, k: &str) -> Option<&String> {
+    pub fn get(&self, k: &str) -> Option<&String> {
         let keys: &Vec<String> = &self.keys;
         let i = &keys.iter().position(|v| v == k);
         if let Some(n) = i {
@@ -23,9 +23,12 @@ impl Dictionary {
             None
         }
     }
-    fn remove(&self, k: &str) -> Result<_, _> {
-        let keys: &Vec<String> = &self.keys;
-        let values: &Vec<String> = &self.values;
+    pub fn remove(&mut self, k: &str) -> Option<_> {
+        let keys: &mut Vec<String> = &mut self.keys;
+        let values: &mut Vec<String> = &mut self.values;
         let i = keys.iter().position(|v| v == k)?;
+        keys.remove(i);
+        values.remove(i);
+        Some(())
     }
 }
