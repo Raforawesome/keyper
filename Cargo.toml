@@ -1,9 +1,9 @@
 [package]
-name = "keyper"
+name = "perky"
 version = "0.1.0"
 edition = "2021"
 readme = "README.md"
-repository = "https://github.com/Raforawesome/keyper"
+repository = "https://github.com/Raforawesome/perky"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

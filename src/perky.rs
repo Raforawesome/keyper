@@ -1,13 +1,15 @@
 use crate::data_struct::dictionary::Dictionary;
 use std::fs;
 use std::path::PathBuf;
+use std::thread::{self, JoinHandle};
 
 pub struct Keyper {
     auto_write: bool,
     file_name: String,
     data: Dictionary,
     mutex: bool,
-    queue: Vec<u8>
+    queue: Vec<u8>,
+    queue_handle: Option<JoinHandle<()>>
 }
 
 impl Default for Keyper {
@@ -30,7 +32,8 @@ impl Keyper {
             file_name: file_name.to_string(),
             data,
             mutex: false,
-            queue: Vec::new()
+            queue: Vec::new(),
+            queue_handle: None
         }
     }
 }

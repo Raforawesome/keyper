@@ -1,5 +1,5 @@
 pub mod data_struct;
-pub mod keyper;
+pub mod perky;
 
 #[cfg(test)]
 mod tests {
