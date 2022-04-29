@@ -3,7 +3,7 @@ use std::fs;
 use std::path::PathBuf;
 use std::thread::{self, JoinHandle};
 
-pub struct Keyper {
+pub struct Perky {
     auto_write: bool,
     file_name: String,
     data: Dictionary,
@@ -12,14 +12,14 @@ pub struct Keyper {
     queue_handle: Option<JoinHandle<()>>
 }
 
-impl Default for Keyper {
-    fn default() -> Keyper {
-        Keyper::new(false, "keyper_db".to_string())
+impl Default for Perky {
+    fn default() -> Perky {
+        Perky::new(false, "keyper_db".to_string())
     }
 }
 
-impl Keyper {
-    pub fn new<T: ToString>(auto_write: bool, file_name: T) -> Keyper {
+impl Perky {
+    pub fn new<T: ToString>(auto_write: bool, file_name: T) -> Perky {
         let data: Dictionary = Dictionary::new();
         if auto_write {
             let res = fs::File::create(PathBuf::from(file_name.to_string()));
@@ -27,7 +27,7 @@ impl Keyper {
                 println!("WARNING: Error in creating file for new Keyper instance :: {:?}", e);
             }
         }
-        Keyper {
+        Perky {
             auto_write,
             file_name: file_name.to_string(),
             data,
@@ -38,7 +38,7 @@ impl Keyper {
     }
 }
 
-impl Keyper {
+impl Perky {
     pub fn set(&mut self, k: String, v: String) {
         self.data.set(k, v);
         if self.auto_write {
