@@ -3,6 +3,12 @@ pub struct Dictionary {
     values: Vec<String>
 }
 
+impl Default for Dictionary {
+    fn default() -> Dictionary {
+        Dictionary::new()
+    }
+}
+
 impl Dictionary {
     pub fn new() -> Dictionary {
         Dictionary {
@@ -24,7 +30,6 @@ impl Dictionary {
         }
     }
     pub fn get_key(&self, val: &str) -> Option<&String> {
-        let keys: &Vec<String> = &self.keys;
         let values: &Vec<String> = &self.values;
         let i = &values.iter().position(|v| v == val);
         if let Some(n) = i {

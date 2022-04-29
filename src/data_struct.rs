@@ -1,1 +1,1 @@
-mod dictionary;
+pub mod dictionary;
