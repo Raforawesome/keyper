@@ -1,6 +1,6 @@
 pub struct Dictionary {
-    keys: Vec<String>,
-    values: Vec<String>
+    pub keys: Vec<String>,
+    pub values: Vec<String>
 }
 
 impl Default for Dictionary {
