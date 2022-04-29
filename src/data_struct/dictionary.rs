@@ -23,7 +23,17 @@ impl Dictionary {
             None
         }
     }
-    pub fn remove(&mut self, k: &str) -> Option<_> {
+    pub fn get_key(&self, val: &str) -> Option<&String> {
+        let keys: &Vec<String> = &self.keys;
+        let values: &Vec<String> = &self.values;
+        let i = &values.iter().position(|v| v == val);
+        if let Some(n) = i {
+            Some(&self.keys[*n])
+        } else {
+            None
+        }
+    }
+    pub fn remove(&mut self, k: &str) -> Option<()> {
         let keys: &mut Vec<String> = &mut self.keys;
         let values: &mut Vec<String> = &mut self.values;
         let i = keys.iter().position(|v| v == k)?;
