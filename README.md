@@ -25,7 +25,7 @@ use perky::Perky;
 fn main() { 
     // Perky::new takes 2 parameters, a bool and the filename
     // the bool isn't used yet
-    let perky = Perky::new(false, "perky_db".to_string());
+    let perky = Perky::new(false, "perky_db");
     perky.set("test".to_string(), "value.to_string()");
 }
 ```
@@ -37,7 +37,7 @@ use perky::Perky;
 fn main() { 
     // Perky::new takes 2 parameters, a bool and the filename
     // the bool isn't used yet
-    let perky = Perky::new(false, "perky_db".to_string());
+    let perky = Perky::new(false, "perky_db");
     perky.set("test".to_string(), "value.to_string()");
     
     // Perky.get returns a reference to a string, and takes a string slice as the argument
@@ -51,8 +51,8 @@ use perky::Perky;
 fn main() { 
     // Perky::new takes 2 parameters, a bool and the filename
     // the bool isn't used yet
-    let perky = Perky::new(false, "perky_db".to_string());
-    perky.set("test".to_string(), "value.to_string()");
+    let perky = Perky::new(false, "perky_db");
+    perky.set("test".to_string(), "value".to_string());
     
     // Writes to the current directory
     // Uses file name provided when creating the Perky instance
@@ -80,7 +80,7 @@ use perky::Perky;
 fn main() { 
     // Perky::new takes 2 parameters, a bool and the filename
     // the bool isn't used yet
-    let perky = Perky::new(false, "perky_db".to_string());
+    let perky = Perky::new(false, "perky_db");
     perky.set("test".to_string(), "value.to_string()");
     
     // Dictionary.get_key returns a reference to a string, and takes a string slice as the argument
