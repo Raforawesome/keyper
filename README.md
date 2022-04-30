@@ -7,7 +7,7 @@ Note: This package uses my [dictionaries package](https://github.com/Raforawesom
 Perky is a simple key-value store that stores relational key-value pairs like a database using in-memory structs.  It can also optionally write these to file in a JSON-like format for easy, human-readable, permanent storage.
 
 ### What happens to file writes if you send too many requests?
-In the future, Perky will use a queue system to handle scenarios like this.  But currently, Perky is single-threaded and writes are handled manually, so this won't be a problem yet.
+In the future, Perky will use a queue system to handle scenarios like this.  However, currently Perky is single-threaded and writes are handled manually, so this won't be a problem yet.
 
 ### How do I use Perky?
 To add it to your project, add this line to your dependencies in your `Cargo.toml`:
