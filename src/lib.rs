@@ -1,4 +1,5 @@
-pub mod perky;
+mod perky;
+pub use perky::Perky;
 
 #[cfg(test)]
 mod tests {

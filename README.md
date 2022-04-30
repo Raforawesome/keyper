@@ -18,9 +18,10 @@ perky = { git = "https://github.com/Raforawesome/perky" }
 Perky behaves as a normal dictionary would.
 
 As for usage, these are Perky's current functions:
-
 #### Setting a key-value pair
 ```rust
+use perky::Perky;
+
 fn main() { 
     // Perky::new takes 2 parameters, a bool and the filename
     // the bool isn't used yet
@@ -31,6 +32,8 @@ fn main() {
 
 #### Getting a value from a key
 ```rust
+use perky::Perky;
+
 fn main() { 
     // Perky::new takes 2 parameters, a bool and the filename
     // the bool isn't used yet
@@ -41,11 +44,39 @@ fn main() {
     let result: Option<&String> = perky.get("test");
 }
 ```
+#### Writing values to file
+```rust
+use perky::Perky;
+
+fn main() { 
+    // Perky::new takes 2 parameters, a bool and the filename
+    // the bool isn't used yet
+    let perky = Perky::new(false, "perky_db".to_string());
+    perky.set("test".to_string(), "value.to_string()");
+    
+    // Writes to the current directory
+    // Uses file name provided when creating the Perky instance
+    
+    perky.write_values();
+}
+```
+#### Reading values from file
+```rust
+use perky::Perky;
+
+fn main() {
+    // uses the same file name
+    // creates a new perky instance
+    let perky = Perky::from_file("perky_db");
+}
+```
 
 ### Bonus: Getting a key from a value
 Since Perky makes its internal dictionary public, you can call functions on that directly, such as the `Dictionary.get_key()` function. 
 #### Getting a value from a key
 ```rust
+use perky::Perky;
+
 fn main() { 
     // Perky::new takes 2 parameters, a bool and the filename
     // the bool isn't used yet
