@@ -71,7 +71,7 @@ impl Perky {
 		// }
 		res
 	}
-	fn write_values(&mut self) {
+	pub fn write_values(&mut self) {
 		if !self.mutex {
 			if let Some(f) = &self.file {
 				self.mutex = true;
@@ -84,10 +84,11 @@ impl Perky {
 					let v = &self.data.values[i];
 					file = file + k.as_str() + "|PERKY_SEP|" + v.as_str() + "\n";
 				}
-				let res = fs::write(t, file);
+				let res = fs::write(&t, file);
 				if res.is_err() {
 					println!("Perky :: WARNING: Writing to file failed");
 				}
+				// println!("Written to {:?}", &t);
 				self.mutex = false;
 			}
 		}
