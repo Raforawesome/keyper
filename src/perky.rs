@@ -1,4 +1,4 @@
-use crate::data_struct::dictionary::Dictionary;
+use dictionaries::Dictionary;
 use std::fs;
 use std::path::PathBuf;
 // use std::thread::{self, JoinHandle};
@@ -34,8 +34,8 @@ impl Perky {
 			file_name: file_name.to_string(),
 			data,
 			mutex: false,
-			queue: Vec::new(),
-			queue_handle: None
+			// queue: Vec::new(),
+			// queue_handle: None
 		}
 	}
 }

@@ -8,6 +8,7 @@ repository = "https://github.com/Raforawesome/perky"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+dictionaries = { git = "https://github.com/Raforawesome/dictionaries-rs" }
 
 [profile.release]
 strip = true

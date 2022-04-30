@@ -1,9 +1,8 @@
-pub mod data_struct;
 pub mod perky;
 
 #[cfg(test)]
 mod tests {
-    use crate::data_struct::dictionary::Dictionary;
+    use dictionaries::Dictionary;
     #[test]
     fn basic_add() {
         let mut dict: Dictionary = Dictionary::new();
