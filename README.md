@@ -57,7 +57,7 @@ fn main() {
     // Writes to the current directory
     // Uses file name provided when creating the Perky instance
     
-    perky.write_values();
+    perky.write_file();
 }
 ```
 #### Reading values from file

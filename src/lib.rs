@@ -86,6 +86,6 @@ mod tests {
 		perky.set("test1".to_string(), "value1".to_string());
 		perky.set("test21".to_string(), "value21".to_string());
 		perky.set("test31".to_string(), "value31".to_string());
-		perky.write_values();
+		perky.write_file();
 	}
 }

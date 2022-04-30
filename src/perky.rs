@@ -96,7 +96,7 @@ impl Perky {
 		// }
 		res
 	}
-	pub fn write_values(&mut self) {
+	pub fn write_file(&mut self) {
 		if !self.mutex {
 			if let Some(f) = &self.file {
 				self.mutex = true;
