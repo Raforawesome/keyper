@@ -21,8 +21,8 @@ As for usage, these are Perky's current functions:
 
 #### Setting a key-value pair
 ```rust
-fn main() {
-	// Perky::new takes 2 parameters, a bool and the filename
+fn main() { 
+    // Perky::new takes 2 parameters, a bool and the filename
     // the bool isn't used yet
     let perky = Perky::new(false, "perky_db".to_string());
     perky.set("test".to_string(), "value.to_string()");
@@ -31,8 +31,8 @@ fn main() {
 
 #### Getting a value from a key
 ```rust
-fn main() {
-	// Perky::new takes 2 parameters, a bool and the filename
+fn main() { 
+    // Perky::new takes 2 parameters, a bool and the filename
     // the bool isn't used yet
     let perky = Perky::new(false, "perky_db".to_string());
     perky.set("test".to_string(), "value.to_string()");
@@ -46,8 +46,8 @@ fn main() {
 Since Perky makes its internal dictionary public, you can call functions on that directly, such as the `Dictionary.get_key()` function. 
 #### Getting a value from a key
 ```rust
-fn main() {
-	// Perky::new takes 2 parameters, a bool and the filename
+fn main() { 
+    // Perky::new takes 2 parameters, a bool and the filename
     // the bool isn't used yet
     let perky = Perky::new(false, "perky_db".to_string());
     perky.set("test".to_string(), "value.to_string()");
