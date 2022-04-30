@@ -4,12 +4,6 @@ use std::path::PathBuf;
 // use std::thread::{self, JoinHandle};
 // use std::time::Duration;
 
-macro_rules! pow5 {
-	($x:expr) => {
-		$x * $x
-	}
-}
-
 pub struct Perky {
 	auto_write: bool,
 	file_name: String,
