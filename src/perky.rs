@@ -1,4 +1,6 @@
-use dictionaries::Dictionary;
+#![allow(dead_code)]
+#![allow(clippy::redundant_pattern_matching)]
+use dictionaries::{Dictionary, RemoveError};
 use std::fs;
 use std::path::PathBuf;
 // use std::thread::{self, JoinHandle};
@@ -47,6 +49,7 @@ impl Perky {
 		let owned = String::from(file_name);
 		let mut path: PathBuf = std::env::current_exe().unwrap().parent().unwrap().to_path_buf();
 		path.push(&owned);
+		let file_obj = fs::File::open(&path).unwrap();
 		let file = fs::read_to_string(&path);
 
 		let mut data: Dictionary = Dictionary::new();
@@ -65,7 +68,7 @@ impl Perky {
 			file_name: owned,
 			data,
 			mutex: false,
-			file: None
+			file: Some(file_obj)
 		}
 	}
 }
@@ -85,8 +88,8 @@ impl Perky {
 	pub fn get(&self, k: &str) -> Option<&String> {
 		self.data.get(k)
 	}
-	pub fn remove(&mut self, k: &str) -> Option<()> {
-		let res: Option<()> = self.data.remove(k);
+	pub fn remove(&mut self, k: &str) -> Result<(), RemoveError> {
+		let res: Result<(), RemoveError> = self.data.remove(k);
 		// if self.auto_write {
 		// 	if self.mutex {
 		// 		self.queue.push(0);
@@ -98,7 +101,7 @@ impl Perky {
 	}
 	pub fn write_file(&mut self) {
 		if !self.mutex {
-			if let Some(f) = &self.file {
+			if let Some(_) = &self.file {
 				self.mutex = true;
 				let file_name = &self.file_name;
 				let mut t = std::env::current_exe().unwrap().parent().unwrap().to_path_buf();
