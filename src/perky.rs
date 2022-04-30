@@ -7,7 +7,7 @@ use std::path::PathBuf;
 pub struct Perky {
 	auto_write: bool,
 	file_name: String,
-	data: Dictionary,
+	pub data: Dictionary,
 	mutex: bool,
 	file: Option<fs::File>,
 	// queue: Vec<u8>,
