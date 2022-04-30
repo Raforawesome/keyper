@@ -43,6 +43,31 @@ impl Perky {
 			// queue_handle: None
 		}
 	}
+	pub fn from_file(file_name: &str) -> Perky {
+		let owned = String::from(file_name);
+		let mut path: PathBuf = std::env::current_exe().unwrap().parent().unwrap().to_path_buf();
+		path.push(&owned);
+		let file = fs::read_to_string(&path);
+
+		let mut data: Dictionary = Dictionary::new();
+		if let Ok(s) = file {
+			let lines = s.lines();
+			for line in lines {
+				let split = line.split("|PERKY_SEP|").collect::<Vec<&str>>();
+				data.set(String::from(split[0]), String::from(split[1]));
+			}
+		} else {
+			println!("Perky :: WARNING: Error in reading file.")
+		}
+
+		Perky {
+			auto_write: false,
+			file_name: owned,
+			data,
+			mutex: false,
+			file: None
+		}
+	}
 }
 
 // Object-specific methods
