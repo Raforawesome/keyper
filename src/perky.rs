@@ -6,6 +6,7 @@ use std::path::PathBuf;
 // use std::thread::{self, JoinHandle};
 // use std::time::Duration;
 
+#[derive(Debug)]
 pub struct Perky {
 	auto_write: bool,
 	file_name: String,
