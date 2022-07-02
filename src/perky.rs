@@ -1,6 +1,6 @@
 #![allow(dead_code)]
 #![allow(clippy::redundant_pattern_matching)]
-use dictionaries::{Dictionary, RemoveError};
+use dictionaries::{ Dictionary, RemoveError };
 use std::fs;
 use std::path::PathBuf;
 // use std::thread::{self, JoinHandle};
@@ -32,7 +32,7 @@ impl Perky {
 		let res = fs::File::create(t);
 		let mut writable: Option<fs::File> = None;
 		if let Err(e) = res {
-			println!("WARNING: Error in creating file for new Keyper instance :: {:?}", e);
+			println!("WARNING: Error in creating file for new Perky instance :: {:?}", e);
 		} else if let Ok(f) = res {
 			writable = Some(f);
 		}
